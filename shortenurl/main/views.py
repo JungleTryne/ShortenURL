@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from mshin_shortener import shorten
 
 # Create your views here.
 def main_page(request):
@@ -6,4 +7,6 @@ def main_page(request):
         return render(request, 'index.html')
     else:
         print(request.POST)
-        return render(request, "index.html")
+        recieved_url = request.POST['url']
+        shortened = shorten.shorten_url(recieved_url)
+        return render(request, "result.html", {"final_url":shortened})
