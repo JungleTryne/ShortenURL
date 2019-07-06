@@ -41,21 +41,29 @@
       <div class="col-lg-6 text-center">
         <h1 class="mt-5">Укротитель URL ссылок</h1>
         <p class="lead">Созданный Мишиным. С нуля.</p>
-        <form action="/" method="post">
-          {% csrf_token %}
+        
           <div class="form-group">
-            <input type="url" class="form-control" id='UrlInputForm' name="url" placeholder="Вставьте вашу ссылку">
+            <input type="text" class="form-control" id="UrlInputForm" name="url" placeholder="Вставьте вашу ссылку">
           </div>
-          <button type="submit" class="btn btn-primary">Укоротить!</button>
-        </form>
+          <button id="sendUrl" class="btn btn-primary">Укоротить!</button>
+          
       </div>
-      <div class="col-lg-3"></div>
+      <div class="col-lg-3">
+        <br>
+        <div id="alert_url" class="alert alert-warning alert-dismissible fade" role="alert">
+            <button type="button" id="close_alert" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          <strong>Подправьте URL!</strong> <br> Его вид: https://example.com
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Bootstrap core JavaScript -->
   <script src="{% static '/jquery/jquery.slim.min.js' %}"></script>
   <script src="{% static 'v/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
 
 </body>
 
