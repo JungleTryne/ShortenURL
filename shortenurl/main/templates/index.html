@@ -41,11 +41,16 @@
       <div class="col-lg-6 text-center">
         <h1 class="mt-5">Укротитель URL ссылок</h1>
         <p class="lead">Созданный Мишиным. С нуля.</p>
-        
+          {% csrf_token %}
           <div class="form-group">
             <input type="text" class="form-control" id="UrlInputForm" name="url" placeholder="Вставьте вашу ссылку">
           </div>
           <button id="sendUrl" class="btn btn-primary">Укоротить!</button>
+        <br>
+        <div id="show_card">
+          
+        </div>
+        
           
       </div>
       <div class="col-lg-3">

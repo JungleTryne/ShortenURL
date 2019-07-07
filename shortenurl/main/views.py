@@ -5,7 +5,9 @@ from mshin_shortener import shorten
 def main_page(request):
     if request.method == "GET":
         return render(request, 'index.html')
-    else:
+
+def generate_url(request):
+    if request.method == "POST":
         print(request.POST)
         recieved_url = request.POST['url']
         shortened = shorten.shorten_url(recieved_url)
