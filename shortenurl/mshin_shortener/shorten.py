@@ -16,7 +16,7 @@ def shorten_url(url) -> str:
     base_url = "127.0.0.1:8000/"
     all_urls = URLPair.objects.all().filter(initial_url=url)
     if len(all_urls) == 0:
-        code = generate_code(6)
+        code = generate_code(7)
         pair = URLPair(initial_url=url, new_url=code)
         pair.save()
     else:
