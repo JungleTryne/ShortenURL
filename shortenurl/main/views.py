@@ -1,13 +1,12 @@
 '''Views for the website.'''
+import logging
 from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
 from django.http import HttpResponseForbidden
 from django.shortcuts import render
 
 #custom lib to generate converted urls
-from mshin_shortener import shorten 
-import logging
-
+from mshin_shortener import shorten
 from .models import URLPair
 
 
