@@ -1,13 +1,13 @@
+<!--this script redirects the user to the initial url-->
 <script>
     var url = "{{ final_url }}";
-    console.log(url);
-    console.log(url != "no");
+    //if there is url pair
     if(url != "no") {
-        if(url.search('http://') == -1)
-            url = 'http://' + url;
         console.log(url);
         document.location.href = url;
     }
     document.getElementById('info').innerHTML = url;
 </script>
+
+<!--the user sees that if there is no converted url that he typed in-->
 <h1 id="info">no such url</h1>
