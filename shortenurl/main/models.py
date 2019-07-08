@@ -1,3 +1,4 @@
+'''DB models for the website'''
 from django.db import models
 
 
