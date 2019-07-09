@@ -16,7 +16,7 @@ def generate_code(length: int) -> str:
 
 def shorten_url(url) -> str:
     '''Returns finished shortened URL, base on website base URL'''
-    base_url = "127.0.0.1:8000/"
+    base_url = "https://jungletryne.pythonanywhere.com/"
     all_urls = URLPair.objects.all().filter(initial_url=url)
     if len(all_urls) == 0:
         code = generate_code(7)

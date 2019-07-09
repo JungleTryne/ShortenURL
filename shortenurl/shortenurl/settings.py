@@ -26,7 +26,7 @@ SECRET_KEY = keys.django_key
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '[::1]', '0.0.0.0']
+ALLOWED_HOSTS = ['jungletryne.pythonanywhere.com']
 
 # Application definition
 
@@ -76,8 +76,11 @@ WSGI_APPLICATION = 'shortenurl.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'JungleTryne$shortenDB',
+        'USER': 'JungleTryne',
+        'PASSWORD': 'pipi1000',
+        'HOST': 'JungleTryne.mysql.pythonanywhere-services.com',
     }
 }
 
@@ -119,10 +122,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/home/JungleTryne/shortenurl/shortenurl/static'
 
 # For production (HTTP protocol)
 
-SECURE_SSL_REDIRECT = False
+SECURE_SSL_REDIRECT = True
 SECURE_BROWSER_XSS_FILTER = True
 CSRF_COOKIE_SECURE = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
