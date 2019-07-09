@@ -4,7 +4,7 @@ function validURL(str) {
       new URL(str);
       return true;
     } catch (_) {
-      return false;  
+      return false;
     }
   }
 
@@ -16,11 +16,9 @@ function closeAlert() {
 
 //button for copying shortened URL
 function copyUrl() {
-  var copyText = document.getElementById('new_url').innerHTML;
-  navigator.clipboard.writeText(copyText).then(function() {
-    document.getElementById('copy_link').classList.remove('btn-success');
-    document.getElementById('copy_link').innerHTML = 'Скопировано'
-  });
+  var copyText = document.getElementById('new_url');
+  copyText.select();
+  document.execCommand("copy");
 }
 
 //sending Post Request to the server for shortening the URL
@@ -31,7 +29,7 @@ function sendPostRequest() {
   if(validURL(url)) {
     if (document.getElementById('alert_url').classList.contains('show'))
       document.getElementById('alert_url').classList.remove('show');
-    
+
     var xhr = new XMLHttpRequest();
     xhr.open('POST','/generate_code/',false);
     var body = 'url=' + encodeURIComponent(url) + '&csrfmiddlewaretoken=' + token;
@@ -39,7 +37,7 @@ function sendPostRequest() {
     xhr.send(body);
     if (xhr.readyState == 4)
       if (xhr.status == 200)
-        var json_data = xhr.responseText; 
+        var json_data = xhr.responseText;
       else {
         console.log('status is not 200');
         return
@@ -48,7 +46,7 @@ function sendPostRequest() {
       console.log('readyState is not 4');
       return
     }
-    document.getElementById('show_card').innerHTML = 
+    document.getElementById('show_card').innerHTML =
         '<div class="card" style="width: 18rem; margin: 0 auto; margin-top: 1rem;">\
         <div class="card-body">\
         <h5 class="card-title">Ваш URL</h5>\
