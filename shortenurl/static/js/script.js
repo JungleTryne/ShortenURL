@@ -47,10 +47,10 @@ function sendPostRequest() {
       return
     }
     document.getElementById('show_card').innerHTML =
-        '<div class="card" style="width: 18rem; margin: 0 auto; margin-top: 1rem;">\
+        '<div class="card" style="width: 30rem; margin: 0 auto; margin-top: 1rem;;">\
         <div class="card-body">\
         <h5 class="card-title">Ваш URL</h5>\
-        <p class="card-text" id="new_url">'+json_data+'</p>\
+        <input class="input-group-text mb-4" value="'+json_data+'" class="card-text" id="new_url" style="margin: 0 auto; width: 25rem" readonly>\
         <button id="copy_link" class="btn btn-success" onclick="copyUrl()">Скопировать</button>\
         </div>\
         </div>'
