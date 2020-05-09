@@ -74,6 +74,17 @@ WSGI_APPLICATION = 'shortenurl.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+#for dev
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': "shortenDB"
+    }
+}
+'''
+
+#for prod
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -126,8 +137,9 @@ STATIC_ROOT = '/home/JungleTryne/shortenurl/shortenurl/static'
 
 # For production (HTTP protocol)
 
-SECURE_SSL_REDIRECT = True
-SECURE_BROWSER_XSS_FILTER = True
-CSRF_COOKIE_SECURE = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SESSION_COOKIE_SECURE = True
+
+SECURE_SSL_REDIRECT = False
+SECURE_BROWSER_XSS_FILTER = False
+CSRF_COOKIE_SECURE = False
+SECURE_CONTENT_TYPE_NOSNIFF = False
+SESSION_COOKIE_SECURE = False
